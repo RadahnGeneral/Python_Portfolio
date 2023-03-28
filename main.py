@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas
 
 st.set_page_config(layout="wide")
 
@@ -9,7 +10,7 @@ Below you can find some of the apps I have built in Python. Feel free to contact
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("images/GD_profile.png",  )
+    st.image("images/GD_profile.png", width=430  )
 
 with col2:
     st.title("Gerard Do")
@@ -22,3 +23,13 @@ with col2:
     st.info(info)
 
 st.write(content_contactMe)
+data_frame = pandas.read_csv("data.csv", sep=";")
+
+col3, col4 = st.columns(2)
+with col3:
+    for index, row in data_frame[0:10].iterrows():
+        st.header(row["title"])
+
+with col4:
+    for index, row in data_frame[10:].iterrows():
+        st.header(row["title"])
