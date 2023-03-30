@@ -14,15 +14,15 @@ with col1:
 
 with col2:
     st.title("Gerard Do")
-    info = """ My name is Gerard Do. I majored finance and accounting in university but switched to software development when I was 28. At the time, it was a terrifying decision for me because a lot of people, including my father, believed that I was too old to start learning coding. 
+    content_info = """ My name is Gerard Do. I majored finance and accounting in university but switched to software development when I was 28. At the time, it was a terrifying decision for me because a lot of people, including my father, believed that I was too old to start learning coding. 
     
     However, I knew at the time technology is the future and coders are the people who participate in the process of building that future. I couldnot resist the temptation of joining, so I made a leap of faith and the rest is history. I love coding now, the enjoyment of solving technical problem,  the thrill of building something from scatch, the mental state of flow that I often immerse myself into, it all make for a great experience as a coder.
 
     I hope you will like what you see in my porfolio here.
     """
-    st.info(info)
+    st.info(content_info)
 
-st.write(content_contactMe)
+st.write(content_contactMe, font="30")
 data_frame = pandas.read_csv("data.csv", sep=";")
 
 col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
@@ -31,7 +31,7 @@ with col3:
         st.header(row["title"])
         st.write(row["description"])
         st.image("images/" + row["image"])
-        st.write(f"[Source Code]({row['url']})")
+        st.write(f"[My Github repos source code]({row['url']})")
 
 with col4:
     for index, row in data_frame[10:].iterrows():
